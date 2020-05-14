@@ -5,13 +5,20 @@ app = Flask(__name__)
 
 @app.route('/')   
 def index():
-    return 'Rutas.' 
+    return 'Hola mundo.' 
     
+
+# params/libros/1    
 #VALIDANDO RUTAS
 
-@app.route('/params')    
-def params():
-    return 'El parametro es: {}, {}'.format(param, param_dos) 
+# LOS VALORES VIENEN EN STRING
+
+#es un servidor rest tal vez necesitamos un numero
+#
+@app.route('/params/')                              #Esta linea es por si viene sin parametro
+@app.route('/params/<name>/<last_name>')    
+def params(name='este es un valor por default', last_name='last name'):    #se crea un parametro por default, por si no llega el parametro
+    return 'El parametro es: {} {}'.format(name, last_name) 
 
 
 if __name__ == '__main__':
