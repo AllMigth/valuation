@@ -15,10 +15,11 @@ def index():
 
 #es un servidor rest tal vez necesitamos un numero
 #
-@app.route('/params/')                              #Esta linea es por si viene sin parametro
-@app.route('/params/<name>/<last_name>')    
-def params(name='este es un valor por default', last_name='last name'):    #se crea un parametro por default, por si no llega el parametro
-    return 'El parametro es: {} {}'.format(name, last_name) 
+@app.route('/params/')                                      #Esta linea es por si viene sin parametro
+#@app.route('/params/<name>/<last_name>')    
+@app.route('/params/<name>/<int:num>')                     #pasando un numero entero 
+def params(name='este es un valor por default', num=1):    #se crea un parametro por default, por si no llega el parametro
+    return 'El parametro es: {} {}'.format(name, num) 
 
 
 if __name__ == '__main__':
